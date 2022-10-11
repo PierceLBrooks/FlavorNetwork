@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildster directory="build" distribution="../Distribution">
+  <project directory="../Project">
+    <pre>
+      <build>
+        <shells>
+          <shell>
+            <work><distribution></distribution>/../../flavornet</work>
+            <commands>
+              <command>
+                <if_exists>
+                  <exists><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</exists>
+                  <else>
+                    <download>https://static-content.springer.com/esm/art%3A10.1038%2Fsrep00196/MediaObjects/41598_2011_BFsrep00196_MOESM2_ESM.zip</download>
+                  </else>
+                </if_exists>
+              </command>
+              <command>
+                <if_exists>
+                  <exists><distribution></distribution>/../../flavornet/srep00196-s2.csv</exists>
+                  <else>
+                    <extract>distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract>
+                  </else>
+                </if_exists>
+              </command>
+            </commands>
+          </shell>
+        </shells>
+      </build>
+    </pre>
+    <dependencies>
+      <dependency>
+        <label>hnsrtree</label>
+        <subpath>build</subpath>
+        <remote>
+          <url>https://github.com/PierceLBrooks/HnSRTree.git</url>
+          <git_repo>
+            <branch>master</branch>
+            <credentials>
+              <username>username</username>
+              <password>password</password>
+            </credentials>
+          </git_repo>
+        </remote>
+        <build>
+          <arguments></arguments>
+          <cmake>
+            <generator>
+              <switch id="BUILDSTER_OS">
+                <case check="Windows">MinGW Makefiles</case>
+                <case check="Linux">Unix Makefiles</case>
+                <case check="Darwin">Xcode</case>
+                <default><quit></quit></default>
+              </switch>
+            </generator>
+            <source>..</source>
+          </cmake>
+        </build>
+        <exports>
+          <export type="all">
+            <key>HNSRTREE_PATH</key>
+            <value><install></install></value>
+          </export>
+          <export type="headers">
+            <key>HNSRTREE_INCLUDE_PATH</key>
+            <value><install></install>/include</value>
+          </export>
+          <export type="libraries">
+            <key>HNSRTREE_LIBRARIES_PATH</key>
+            <value><install></install>/lib</value>
+          </export>
+        </exports>
+        <imports></imports>
+      </dependency>
+    </dependencies>
+    <targets>
+      <target type="executable">
+        <label>flavornet</label>
+        <generator>
+          <switch id="BUILDSTER_OS">
+            <case check="Windows">MinGW Makefiles</case>
+            <case check="Linux">Unix Makefiles</case>
+            <case check="Darwin">Xcode</case>
+            <default><quit></quit></default>
+          </switch>
+        </generator>
+        <definitions></definitions>
+        <links>
+          <link>*Hn*</link>
+        </links>
+        <imports>
+          <import>hnsrtree</import>
+        </imports>
+      </target>
+    </targets>
+  </project>
+</buildster>
