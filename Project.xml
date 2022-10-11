@@ -17,9 +17,9 @@
               </command>
               <command>
                 <if_exists>
-                  <exists><distribution></distribution>/../../flavornet/srep00196-s2.csv</exists>
+                  <exists><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv</exists>
                   <else>
-                    <extract>distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract>
+                    <extract><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract>
                   </else>
                 </if_exists>
               </command>
@@ -49,7 +49,7 @@
               <switch id="BUILDSTER_OS">
                 <case check="Windows">MinGW Makefiles</case>
                 <case check="Linux">Unix Makefiles</case>
-                <case check="Darwin">Xcode</case>
+                <case check="Darwin">Unix Makefiles</case>
                 <default><quit></quit></default>
               </switch>
             </generator>
@@ -80,7 +80,7 @@
           <switch id="BUILDSTER_OS">
             <case check="Windows">MinGW Makefiles</case>
             <case check="Linux">Unix Makefiles</case>
-            <case check="Darwin">Xcode</case>
+            <case check="Darwin">Unix Makefiles</case>
             <default><quit></quit></default>
           </switch>
         </generator>
