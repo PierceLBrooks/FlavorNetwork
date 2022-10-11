@@ -88,7 +88,9 @@
         </generator>
         <definitions></definitions>
         <links>
-          <link>*Hn*</link>
+          <link>*HnSRTree*</link>
+          <link>*HnRect*</link>
+          <link>*HnObject*</link>
         </links>
         <imports>
           <import>hnsrtree</import>

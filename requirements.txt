@@ -1,2 +1,2 @@
-pymmds>=1.0
+git+https://github.com/PierceLBrooks/pymmds.git@master
 
