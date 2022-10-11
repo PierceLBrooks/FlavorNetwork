@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildster directory="build" distribution="../Distribution">
   <project directory="../Project">
-    <pre>
+    <pre timing="build">
       <build>
         <shells>
           <shell>
@@ -10,17 +10,19 @@
               <command>
                 <if_exists>
                   <exists><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</exists>
-                  <else>
-                    <download>https://static-content.springer.com/esm/art%3A10.1038%2Fsrep00196/MediaObjects/41598_2011_BFsrep00196_MOESM2_ESM.zip</download>
-                  </else>
+                  <else><download>https://static-content.springer.com/esm/art%3A10.1038%2Fsrep00196/MediaObjects/41598_2011_BFsrep00196_MOESM2_ESM.zip</download></else>
                 </if_exists>
               </command>
               <command>
                 <if_exists>
                   <exists><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv</exists>
-                  <else>
-                    <extract><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract>
-                  </else>
+                  <else><extract><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract></else>
+                </if_exists>
+              </command>
+              <command>
+                <if_exists>
+                  <exists><distribution></distribution>/../../Project/flavornet/flavornet.c</exists>
+                  <else><python></python> <distribution></distribution>/../../flavornet.py <distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv <distribution></distribution>/../../Project/flavornet/flavornet.c</else>
                 </if_exists>
               </command>
             </commands>
