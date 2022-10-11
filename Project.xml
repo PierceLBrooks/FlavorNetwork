@@ -5,24 +5,24 @@
       <build>
         <shells>
           <shell>
-            <work><distribution></distribution>/../../flavornet</work>
+            <work><origin></origin>/../flavornet</work>
             <commands>
               <command>
                 <if_exists>
-                  <exists><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</exists>
+                  <exists><origin></origin>/../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</exists>
                   <else><download>https://static-content.springer.com/esm/art%3A10.1038%2Fsrep00196/MediaObjects/41598_2011_BFsrep00196_MOESM2_ESM.zip</download></else>
                 </if_exists>
               </command>
               <command>
                 <if_exists>
-                  <exists><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv</exists>
-                  <else><extract><distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract></else>
+                  <exists><origin></origin>/../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv</exists>
+                  <else><extract><origin></origin>/../flavornet/41598_2011_BFsrep00196_MOESM2_ESM.zip</extract></else>
                 </if_exists>
               </command>
               <command>
                 <if_exists>
-                  <exists><distribution></distribution>/../../Project/flavornet/flavornet.c</exists>
-                  <else><python></python> <distribution></distribution>/../../flavornet.py <distribution></distribution>/../../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv <distribution></distribution>/../../Project/flavornet/flavornet.c</else>
+                  <exists><origin></origin>/../Project/flavornet/flavornet.c</exists>
+                  <else><python></python> <origin></origin>/../flavornet.py <origin></origin>/../flavornet/41598_2011_BFsrep00196_MOESM2_ESM/srep00196-s2.csv <origin></origin>/../Project/flavornet/flavornet.c</else>
                 </if_exists>
               </command>
             </commands>
